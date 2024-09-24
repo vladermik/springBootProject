@@ -17,7 +17,7 @@ public class AppController {
     @RequestMapping("/")
     public String viewHomePage(Model model, @Param("keyword") String keyword) {
         List<Book> listBooks = service.listAll(keyword);
-        model.addAttribute("listStudents", listBooks);
+        model.addAttribute("listBooks", listBooks);
         model.addAttribute("keyword", keyword);
         return "index";
     }
