@@ -1,4 +1,4 @@
-CREATE TABLE Book (
+CREATE TABLE if not exists Book(
                       id BIGINT AUTO_INCREMENT PRIMARY KEY,
                       title VARCHAR(255),
                       publisher VARCHAR(255),

@@ -34,6 +34,6 @@ public class Book {
     }
     @Override
     public String toString() {
-        return "student [id=" + id + ", title=" + title + ", publisher=" + publisher + ", issueDate=" + issueDate + ", student=" + student + ", returnDate=" + returnDate + "]";
+        return "book [id=" + id + ", title=" + title + ", publisher=" + publisher + ", issueDate=" + issueDate + ", student=" + student + ", returnDate=" + returnDate + "]";
     }
 }
