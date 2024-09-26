@@ -2,7 +2,6 @@ package com.example.springbootproject;
 
 import java.util.List; // Импортируем коллекцию (класс списков)
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -13,10 +12,15 @@ public class AppController {
     @Autowired
     private bookService service;
     @RequestMapping("/")
-    public String viewHomePage(Model model, @RequestParam("keyword") String keyword) {
-        List<Book> listBooks = service.listAll(keyword);
+    public String viewHomePage(Model model,
+                               @RequestParam(value = "keyword", required = false) String keyword,
+                               @RequestParam(value = "sortOrder", required = false) String sortOrder,
+                               @RequestParam(value = "sortField", required = false) String sortField) {
+        List<Book> listBooks = service.listAll(keyword, sortField, sortOrder);
         model.addAttribute("listBooks", listBooks);
         model.addAttribute("keyword", keyword);
+        model.addAttribute("sortOrder", sortOrder);
+        model.addAttribute("sortField", sortField);
         return "index";
     }
     @RequestMapping("/new") // Добавление студента

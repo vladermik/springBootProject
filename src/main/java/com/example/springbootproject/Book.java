@@ -1,12 +1,11 @@
 package com.example.springbootproject;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Setter;
 import lombok.Getter;
+
+import java.sql.Date;
 
 
 @Setter
@@ -18,11 +17,13 @@ public class Book {
     @Getter
     private String publisher;
     @Getter
-    private String issueDate;
+    @Column(name = "issueDate") // Явное указание имени колонки
+    private Date issueDate;
     @Getter
     private String student;
     @Getter
-    private String returnDate;
+    @Column(name = "returnDate") // Явное указание имени колонки
+    private Date returnDate;
 
     protected Book() {
     }

@@ -1,40 +1,46 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="ru">
-<title>Добавить студента</title>
+<title>Добавить библиотечную запись</title>
 <header th:replace="index :: head"></header>
 <body>
-<div class="bg-image"
-     style="background-image: url('https://palchevsky.ru/images/background.jpg'); height: 100vh; overflow:
-auto">
-    <blockquote class="blockquote text-center"><h1>Добавить студента факультета
-        ИТиАБД</h1></blockquote>
+<div class="container-fluid p-5 bg-gradient bg-secondary" style="min-height: 100vh; overflow: auto; --bs-bg-opacity: .5;">
+    <blockquote class="blockquote text-center">
+    <blockquote class="blockquote text-center"><h1>Добавить библиотечную запись</h1></blockquote>
     <div class="row">
         <div class="col-md-8 offset-md-4">
-            <form action="#" th:action="@{/save}" th:object="${student}" method="post">
+            <form action="#" th:action="@{/save}" th:object="${book}" method="post">
                 <table>
                     <tr>
-                        <td>ID студента:</td>
-                        <td><input type="text" th:field="*{id}"></td>
+                        <td>ID книги:</td>
+                        <td><input type="text" th:field="*{id}" readonly="readonly"></td>
                     </tr>
                     <tr>
-                        <td>Имя:</td>
-                        <td><input type="text" th:field="*{first}"></td>
+                        <td>Название:</td>
+                        <td><input type="text" th:field="*{title}"></td>
                     </tr>
                     <tr>
-                        <td>Фамилия:</td>
-                        <td><input type="text" th:field="*{last}"></td>
+                        <td>Издательство:</td>
+                        <td><input type="text" th:field="*{publisher}"></td>
                     </tr>
                     <tr>
-                        <td>Номер студенческого:</td>
-                        <td><input type="text" th:field="*{num}"></td>
+                        <td>Дата выдачи:</td>
+                        <td><input type="text" th:field="*{issueDate}"></td>
                     </tr>
                     <tr>
-                        <td>Средний балл:</td>
-                        <td><input type="text" onkeyup="this.value = this.value.replace(/\.(?=.*\.)|[^\d\.-]/g, '');"
-                                   onchange="this.value = this.value.replace(/\.(?=.*\.)|[^\d\.-]/g, '');"
-                                   th:field="*{av}"></td>
+                        <td>Дата возврата:</td>
+                        <td><input type="text" th:field="*{returnDate}"></td>
+                    </tr>
+                    <tr>
+                        <td>Студент:</td>
+                        <td><input type="text" th:field="*{student}"></td>
                     </tr>
                     <tr>
                         <td>
                             <button type="submit" class="btn btn-primary" data-tooggle="button" aria-pressed="false" autocomplete="off">Сохранить</button>
-                        </td></tr></table></form></div></div></div></body></html>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</div></body></html>
